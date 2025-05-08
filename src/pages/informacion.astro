@@ -1,0 +1,174 @@
+---
+import Layout from "../layouts/Layout.astro";
+import InfoSection from "../components/InfoSection.astro";
+import Sponsors from "../components/Sponsors.astro";
+
+const title = "Información - Baby Fútbol Funes 2025";
+const description = "Toda la información sobre el torneo Baby Fútbol Funes 2025, clasificatorio al zonal nacional.";
+---
+
+<Layout title={title} description={description}>
+  <div class="bg-primary-700 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-center">Información del Torneo</h1>
+      <div class="mt-2 h-1 w-20 bg-white mx-auto"></div>
+    </div>
+  </div>
+  
+  <InfoSection />
+  
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="col-span-1 lg:col-span-2">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Reglamento del Torneo</h2>
+          
+          <div class="prose prose-lg max-w-none">
+            <p>
+              El torneo Zonal Regional BABY FÚTBOL FUNES 2025 se regirá por las normas oficiales de la 
+              organización Los Paisitas, adaptadas para garantizar el desarrollo justo y seguro de la competencia.
+            </p>
+            
+            <h3>Categorías</h3>
+            <p>
+              El torneo está dirigido a niños nacidos en los años 2014 y 2015, quienes deberán presentar 
+              documentación oficial que acredite su fecha de nacimiento.
+            </p>
+            
+            <h3>Formato de Competencia</h3>
+            <p>
+              16 equipos distribuidos en 4 grupos de 4 equipos cada uno. La primera fase será de grupos, 
+              donde cada equipo jugará tres partidos. Los dos mejores equipos de cada grupo avanzarán a la fase de cuartos de final.
+            </p>
+            
+            <h3>Duración de los Partidos</h3>
+            <p>
+              Los partidos tendrán una duración de 40 minutos, divididos en dos tiempos de 20 minutos cada uno, 
+              con un descanso de 10 minutos entre tiempos.
+            </p>
+            
+            <h3>Sistema de Puntuación</h3>
+            <ul>
+              <li>3 puntos por victoria</li>
+              <li>1 punto por empate</li>
+              <li>0 puntos por derrota</li>
+            </ul>
+            
+            <p>
+              En caso de empate en puntos al final de la fase de grupos, se definirá por:
+            </p>
+            <ol>
+              <li>Diferencia de goles</li>
+              <li>Mayor cantidad de goles a favor</li>
+              <li>Resultado del enfrentamiento directo</li>
+              <li>Fair Play (menor cantidad de tarjetas)</li>
+              <li>Sorteo</li>
+            </ol>
+            
+            <h3>Fases Finales</h3>
+            <p>
+              A partir de cuartos de final, los partidos que terminen empatados se definirán mediante 
+              tiros desde el punto penal, conforme al reglamento oficial.
+            </p>
+          </div>
+        </div>
+        
+        <div class="lg:col-span-1 space-y-8">
+          <div class="bg-primary-50 rounded-lg p-6 shadow-sm">
+            <h3 class="text-xl font-bold text-primary-800 mb-4">Fechas Importantes</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <span class="bg-primary-100 text-primary-700 rounded-full p-1 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </span>
+                <div>
+                  <span class="font-semibold block">8 de abril, 2025</span>
+                  <span class="text-gray-600">Ceremonia de inauguración y primeros partidos</span>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="bg-primary-100 text-primary-700 rounded-full p-1 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </span>
+                <div>
+                  <span class="font-semibold block">9-10 de abril, 2025</span>
+                  <span class="text-gray-600">Fase de grupos</span>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="bg-primary-100 text-primary-700 rounded-full p-1 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </span>
+                <div>
+                  <span class="font-semibold block">11 de abril, 2025</span>
+                  <span class="text-gray-600">Cuartos de final</span>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="bg-primary-100 text-primary-700 rounded-full p-1 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </span>
+                <div>
+                  <span class="font-semibold block">12 de abril, 2025</span>
+                  <span class="text-gray-600">Semifinales</span>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="bg-primary-100 text-primary-700 rounded-full p-1 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </span>
+                <div>
+                  <span class="font-semibold block">13 de abril, 2025</span>
+                  <span class="text-gray-600">Final y ceremonia de clausura</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-accent-50 rounded-lg p-6 shadow-sm">
+            <h3 class="text-xl font-bold text-accent-800 mb-4">Documentos</h3>
+            <p class="mb-4 text-gray-700">Descarga los documentos oficiales del torneo:</p>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="flex items-center text-accent-700 hover:text-accent-800 font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                  Reglamento completo
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center text-accent-700 hover:text-accent-800 font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                  Formulario de inscripción
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex items-center text-accent-700 hover:text-accent-800 font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                  Autorización para menores
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <Sponsors />
+</Layout>

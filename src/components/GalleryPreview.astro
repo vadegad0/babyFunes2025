@@ -1,0 +1,43 @@
+---
+const images = [
+  { src: "https://images.pexels.com/photos/3148452/pexels-photo-3148452.jpeg", alt: "Niños jugando fútbol" },
+  { src: "https://images.pexels.com/photos/8224057/pexels-photo-8224057.jpeg", alt: "Jugadas de fútbol infantil" },
+  { src: "https://images.pexels.com/photos/6203479/pexels-photo-6203479.jpeg", alt: "Equipo ganador" },
+  { src: "https://images.pexels.com/photos/5067768/pexels-photo-5067768.jpeg", alt: "Momento de celebración" },
+];
+---
+
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Galería</h2>
+      <div class="mt-2 h-1 w-20 bg-accent-500 mx-auto"></div>
+      <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+        Revive los mejores momentos del torneo a través de nuestra galería de fotos y videos.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {images.map((image, index) => (
+        <div class={`relative overflow-hidden rounded-lg shadow-md group ${index === 0 ? "md:col-span-2 md:row-span-2" : ""}`}>
+          <img 
+            src={image.src} 
+            alt={image.alt} 
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div class="p-4 text-white">
+              <p class="font-medium">{image.alt}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-12 text-center">
+      <a href="/galeria" class="inline-block bg-accent-500 hover:bg-accent-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
+        Ver galería completa
+      </a>
+    </div>
+  </div>
+</section>

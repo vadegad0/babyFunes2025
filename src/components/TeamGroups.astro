@@ -1,0 +1,81 @@
+---
+// This is a placeholder for team data - replace with actual team data
+const groups = [
+  {
+    name: "Grupo A",
+    teams: [
+      { name: "Club Deportivo Juventud", logo: "https://via.placeholder.com/80?text=CDJ" },
+      { name: "Real Ipiales", logo: "https://via.placeholder.com/80?text=RI" },
+      { name: "Estrellas FC", logo: "https://via.placeholder.com/80?text=EFC" },
+      { name: "Deportivo Pasto Junior", logo: "https://via.placeholder.com/80?text=DPJ" }
+    ]
+  },
+  {
+    name: "Grupo B",
+    teams: [
+      { name: "Los Andes Academy", logo: "https://via.placeholder.com/80?text=LAA" },
+      { name: "Atlético Nariño", logo: "https://via.placeholder.com/80?text=AN" },
+      { name: "Millos FC", logo: "https://via.placeholder.com/80?text=MFC" },
+      { name: "CD Tumaco", logo: "https://via.placeholder.com/80?text=CDT" }
+    ]
+  },
+  {
+    name: "Grupo C",
+    teams: [
+      { name: "Independiente Sur", logo: "https://via.placeholder.com/80?text=IS" },
+      { name: "Atlético Junior", logo: "https://via.placeholder.com/80?text=AJ" },
+      { name: "Leones FC", logo: "https://via.placeholder.com/80?text=LFC" },
+      { name: "Talento Andino", logo: "https://via.placeholder.com/80?text=TA" }
+    ]
+  },
+  {
+    name: "Grupo D",
+    teams: [
+      { name: "Nuevo Horizonte", logo: "https://via.placeholder.com/80?text=NH" },
+      { name: "Samaniego United", logo: "https://via.placeholder.com/80?text=SU" },
+      { name: "CD Sandoná", logo: "https://via.placeholder.com/80?text=CDS" },
+      { name: "Nueva Generación", logo: "https://via.placeholder.com/80?text=NG" }
+    ]
+  }
+];
+---
+
+<section id="equipos" class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Grupos y Equipos</h2>
+      <div class="mt-2 h-1 w-20 bg-accent-500 mx-auto"></div>
+      <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+        16 equipos distribuidos en 4 grupos competirán por la gloria y la clasificación al torneo nacional.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {groups.map(group => (
+        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-transform duration-300 hover:shadow-lg">
+          <div class="bg-primary-600 text-white py-3 px-4">
+            <h3 class="text-xl font-bold">{group.name}</h3>
+          </div>
+          <div class="p-4">
+            {group.teams.map(team => (
+              <div class="flex items-center py-3 border-b border-gray-100 last:border-b-0">
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-100 rounded-full overflow-hidden flex items-center justify-center mr-4">
+                  <img src={team.logo} alt={`Logo de ${team.name}`} class="max-w-full max-h-full" />
+                </div>
+                <div class="flex-grow">
+                  <h4 class="font-bold text-gray-900">{team.name}</h4>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-12 text-center">
+      <a href="/equipos" class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
+        Ver detalles de los equipos
+      </a>
+    </div>
+  </div>
+</section>

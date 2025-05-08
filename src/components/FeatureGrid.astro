@@ -1,0 +1,45 @@
+---
+const features = [
+  {
+    title: "16 Equipos",
+    description: "Los mejores equipos infantiles de la región compitiendo por el título y la clasificación.",
+    icon: "🏆"
+  },
+  {
+    title: "6 Días de Competencia",
+    description: "Del 8 al 13 de abril de 2025, llenos de emoción, goles y espíritu deportivo.",
+    icon: "📅"
+  },
+  {
+    title: "Galería Multimedia",
+    description: "Fotos y videos de cada jornada para revivir los mejores momentos del torneo.",
+    icon: "📸"
+  },
+  {
+    title: "Resultados en Vivo",
+    description: "Mantente informado con los resultados y clasificaciones actualizados diariamente.",
+    icon: "⚽"
+  }
+];
+---
+
+<section class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900">Características del Torneo</h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+        Disfruta de un torneo organizado con los más altos estándares y lleno de actividades complementarias.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {features.map(feature => (
+        <div class="bg-white rounded-lg shadow-md p-6 transform transition duration-300 hover:scale-105">
+          <div class="text-4xl mb-4">{feature.icon}</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+          <p class="text-gray-600">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

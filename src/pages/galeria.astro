@@ -1,0 +1,160 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { galeriaFotos } from "../data/galeriaData.js";
+
+const title = "Galería - Baby Fútbol Funes 2025";
+const description =
+  "Galería de fotos y videos del torneo Baby Fútbol Funes 2025, clasificatorio al zonal nacional.";
+
+// Sample data structure for the gallery
+const days = [
+  {
+    name: "Galería Baby Funes",
+    date: "13 de abril, 2025",
+    photos: galeriaFotos,
+  },  
+];
+---
+
+<Layout title={title} description={description}>
+  <div class="bg-accent-700 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-center">Galería Multimedia</h1>
+      <div class="mt-2 h-1 w-20 bg-white mx-auto"></div>
+      <p class="mt-4 text-lg text-center max-w-3xl mx-auto">
+        Revive los mejores momentos del Zonal Regional BABY FÚTBOL FUNES 2025 a
+        través de nuestra colección de fotos.
+      </p>
+    </div>
+  </div>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+
+
+        {
+          days.map((day, index) => (
+            <div
+              id={`day-${index + 1}`}
+              class={`day-content ${index === 0 ? "block" : "hidden"}`}
+            >
+              <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-1">
+                  {day.name}
+                </h2>
+                <p class="text-gray-600">{day.date}</p>
+              </div>
+
+
+
+              <div>
+                <h3 class="text-xl font-bold text-gray-900 mb-6">
+                  Fotografías
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 photo-gallery">
+                  {day.photos.map((photo) => (
+                    <a
+                      href={photo.src}
+                      class="gallery-item block rounded-lg overflow-hidden shadow-md"
+                      data-pswp-width={photo.width}
+                      data-pswp-height={photo.height}
+                      target="_blank"
+                    >
+                      <img
+                        src={photo.thumbnail}
+                        alt={photo.alt}
+                        class="w-full h-full object-cover aspect-square hover:opacity-90 transition-opacity"
+                        loading="lazy"
+                      />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import PhotoSwipe from "photoswipe";
+  import "photoswipe/style.css";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Tab navigation
+    const tabButtons = document.querySelectorAll(".day-tab");
+    const contentDivs = document.querySelectorAll(".day-content");
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        // Update button styles
+        tabButtons.forEach((btn) => {
+          btn.classList.remove("bg-primary-700", "text-white");
+          btn.classList.add("bg-white", "text-gray-700", "hover:bg-gray-100");
+        });
+        button.classList.remove(
+          "bg-white",
+          "text-gray-700",
+          "hover:bg-gray-100"
+        );
+        button.classList.add("bg-primary-700", "text-white");
+
+        // Show associated content
+        const target = button.getAttribute("data-target");
+        contentDivs.forEach((div) => {
+          div.classList.add("hidden");
+        });
+        document.getElementById(target).classList.remove("hidden");
+      });
+    });
+
+    // Initialize PhotoSwipe
+    const galleries = document.querySelectorAll(".photo-gallery");
+
+    galleries.forEach((gallery) => {
+      const galleryItems = gallery.querySelectorAll("a");
+
+      galleryItems.forEach((item) => {
+        item.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const options = {
+            dataSource: Array.from(galleryItems).map((galleryItem) => ({
+              src: galleryItem.href,
+              w: parseInt(galleryItem.dataset.pswpWidth, 10),
+              h: parseInt(galleryItem.dataset.pswpHeight, 10),
+            })),
+            index: Array.from(galleryItems).indexOf(item),
+            bgOpacity: 0.9,
+            showHideOpacity: true,
+            closeOnVerticalDrag: true,
+            spacing: 0.12,
+            allowPanToNext: true,
+            wheelToZoom: true,
+            padding: { top: 20, bottom: 20, left: 20, right: 20 },
+          };
+
+          const lightbox = new PhotoSwipe(options);
+          lightbox.init();
+        });
+      });
+    });
+  });
+</script>
+
+<style is:global>
+  .pswp {
+    --pswp-bg: rgba(0, 0, 0, 0.9);
+    --pswp-placeholder-bg: #222;
+    --pswp-root-z-index: 100000;
+    --pswp-preloader-color: rgba(255, 255, 255, 0.8);
+    --pswp-icon-color: #fff;
+    --pswp-icon-color-secondary: #4f4f4f;
+    --pswp-icon-stroke-color: #4f4f4f;
+    --pswp-icon-stroke-width: 2px;
+    --pswp-error-text-color: #fff;
+  }
+</style>

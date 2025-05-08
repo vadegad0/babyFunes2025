@@ -1,0 +1,193 @@
+---
+import Layout from "../layouts/Layout.astro";
+import TeamGroups from "../components/TeamGroups.astro";
+
+const title = "Equipos - Baby Fútbol Funes 2025";
+const description = "Conoce los 16 equipos participantes en el torneo Baby Fútbol Funes 2025, distribuidos en 4 grupos.";
+
+// This is a placeholder for more detailed team data
+const groups = [
+  {
+    name: "Grupo A",
+    teams: [
+      { 
+        name: "Club Deportivo Juventud", 
+        logo: "https://via.placeholder.com/120?text=CDJ", 
+        city: "Pasto",
+        coach: "Carlos Perez",
+        colors: "Rojo y Blanco"
+      },
+      { 
+        name: "Real Ipiales", 
+        logo: "https://via.placeholder.com/120?text=RI", 
+        city: "Ipiales",
+        coach: "Juan Martínez",
+        colors: "Azul y Amarillo"
+      },
+      { 
+        name: "Estrellas FC", 
+        logo: "https://via.placeholder.com/120?text=EFC", 
+        city: "Tumaco",
+        coach: "Miguel Sánchez",
+        colors: "Verde y Blanco"
+      },
+      { 
+        name: "Deportivo Pasto Junior", 
+        logo: "https://via.placeholder.com/120?text=DPJ", 
+        city: "Pasto",
+        coach: "Luis Ramírez",
+        colors: "Rojo y Azul"
+      }
+    ]
+  },
+  {
+    name: "Grupo B",
+    teams: [
+      { 
+        name: "Los Andes Academy", 
+        logo: "https://via.placeholder.com/120?text=LAA", 
+        city: "Pasto",
+        coach: "Pedro Arteaga",
+        colors: "Blanco y Negro"
+      },
+      { 
+        name: "Atlético Nariño", 
+        logo: "https://via.placeholder.com/120?text=AN", 
+        city: "Nariño",
+        coach: "Fernando Mora",
+        colors: "Amarillo y Verde"
+      },
+      { 
+        name: "Millos FC", 
+        logo: "https://via.placeholder.com/120?text=MFC", 
+        city: "La Unión",
+        coach: "Diego Torres",
+        colors: "Azul y Blanco"
+      },
+      { 
+        name: "CD Tumaco", 
+        logo: "https://via.placeholder.com/120?text=CDT", 
+        city: "Tumaco",
+        coach: "José Benavides",
+        colors: "Negro y Dorado"
+      }
+    ]
+  },
+  {
+    name: "Grupo C",
+    teams: [
+      { 
+        name: "Independiente Sur", 
+        logo: "https://via.placeholder.com/120?text=IS", 
+        city: "Ipiales",
+        coach: "Roberto Díaz",
+        colors: "Rojo y Negro"
+      },
+      { 
+        name: "Atlético Junior", 
+        logo: "https://via.placeholder.com/120?text=AJ", 
+        city: "Funes",
+        coach: "William López",
+        colors: "Rojo y Blanco"
+      },
+      { 
+        name: "Leones FC", 
+        logo: "https://via.placeholder.com/120?text=LFC", 
+        city: "Pasto",
+        coach: "Jorge Guerrero",
+        colors: "Amarillo y Marrón"
+      },
+      { 
+        name: "Talento Andino", 
+        logo: "https://via.placeholder.com/120?text=TA", 
+        city: "Túquerres",
+        coach: "Ricardo Montoya",
+        colors: "Verde y Amarillo"
+      }
+    ]
+  },
+  {
+    name: "Grupo D",
+    teams: [
+      { 
+        name: "Nuevo Horizonte", 
+        logo: "https://via.placeholder.com/120?text=NH", 
+        city: "Pasto",
+        coach: "Mauricio Paz",
+        colors: "Azul y Naranja"
+      },
+      { 
+        name: "Samaniego United", 
+        logo: "https://via.placeholder.com/120?text=SU", 
+        city: "Samaniego",
+        coach: "Antonio Bravo",
+        colors: "Blanco y Azul"
+      },
+      { 
+        name: "CD Sandoná", 
+        logo: "https://via.placeholder.com/120?text=CDS", 
+        city: "Sandoná",
+        coach: "Fabián Rosero",
+        colors: "Naranja y Negro"
+      },
+      { 
+        name: "Nueva Generación", 
+        logo: "https://via.placeholder.com/120?text=NG", 
+        city: "La Florida",
+        coach: "Germán Córdoba",
+        colors: "Azul y Blanco"
+      }
+    ]
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <div class="bg-primary-700 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-center">Equipos Participantes</h1>
+      <div class="mt-2 h-1 w-20 bg-white mx-auto"></div>
+      <p class="mt-4 text-lg text-center max-w-3xl mx-auto">
+        Conoce los 16 equipos que participarán en el torneo Zonal Regional BABY FÚTBOL FUNES 2025.
+      </p>
+    </div>
+  </div>
+  
+  <TeamGroups />
+  
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Información Detallada de los Equipos</h2>
+      
+      {groups.map(group => (
+        <div class="mb-16 last:mb-0">
+          <h3 class="text-2xl font-bold text-primary-700 mb-6 pb-2 border-b border-primary-200">{group.name}</h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {group.teams.map(team => (
+              <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-transform duration-300 hover:shadow-lg">
+                <div class="bg-gray-50 p-4 flex justify-center">
+                  <img src={team.logo} alt={`Logo de ${team.name}`} class="h-32 w-32 object-contain" />
+                </div>
+                <div class="p-4">
+                  <h4 class="font-bold text-xl text-gray-900 mb-2">{team.name}</h4>
+                  <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-center">
+                      <span class="font-semibold mr-2">Ciudad:</span> {team.city}
+                    </li>
+                    <li class="flex items-center">
+                      <span class="font-semibold mr-2">Entrenador:</span> {team.coach}
+                    </li>
+                    <li class="flex items-center">
+                      <span class="font-semibold mr-2">Colores:</span> {team.colors}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

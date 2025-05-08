@@ -1,0 +1,217 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { format } from 'date-fns';
+import { es } from 'date-fns/locale';
+
+const title = "Resultados - Baby Fútbol Funes 2025";
+const description = "Resultados de los partidos del torneo Baby Fútbol Funes 2025, clasificatorio al zonal nacional.";
+
+// Sample data - replace with actual results when available
+const matchDays = [
+  {
+    id: "day1",
+    name: "Jornada 1",
+    date: new Date('2025-04-08'),
+    status: "completed",
+    pdfUrl: "#",
+    matches: [
+      { group: "A", teamA: "CD Juventud", scoreA: 3, teamB: "Estrellas FC", scoreB: 1 },
+      { group: "A", teamA: "Real Ipiales", scoreA: 2, teamB: "D. Pasto Junior", scoreB: 2 },
+      { group: "B", teamA: "Los Andes", scoreA: 1, teamB: "Atlético Nariño", scoreB: 0 },
+      { group: "B", teamA: "Millos FC", scoreA: 4, teamB: "CD Tumaco", scoreB: 2 }
+    ]
+  },
+  {
+    id: "day2",
+    name: "Jornada 2",
+    date: new Date('2025-04-09'),
+    status: "completed",
+    pdfUrl: "#",
+    matches: [
+      { group: "C", teamA: "Independiente Sur", scoreA: 2, teamB: "Atlético Junior", scoreB: 0 },
+      { group: "C", teamA: "Leones FC", scoreA: 1, teamB: "Talento Andino", scoreB: 1 },
+      { group: "D", teamA: "Nuevo Horizonte", scoreA: 3, teamB: "Samaniego United", scoreB: 2 },
+      { group: "D", teamA: "CD Sandoná", scoreA: 0, teamB: "Nueva Generación", scoreB: 2 }
+    ]
+  },
+  {
+    id: "day3",
+    name: "Jornada 3",
+    date: new Date('2025-04-10'),
+    status: "pending",
+    pdfUrl: null,
+    matches: []
+  },
+  {
+    id: "quarterfinals",
+    name: "Cuartos de Final",
+    date: new Date('2025-04-11'),
+    status: "pending",
+    pdfUrl: null,
+    matches: []
+  },
+  {
+    id: "semifinals",
+    name: "Semifinales",
+    date: new Date('2025-04-12'),
+    status: "pending",
+    pdfUrl: null,
+    matches: []
+  },
+  {
+    id: "final",
+    name: "Final",
+    date: new Date('2025-04-13'),
+    status: "pending",
+    pdfUrl: null,
+    matches: []
+  }
+];
+
+function formatDate(date) {
+  return format(date, "EEEE d 'de' MMMM, yyyy", { locale: es });
+}
+---
+
+<Layout title={title} description={description}>
+  <div class="bg-secondary-700 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-center">Resultados del Torneo</h1>
+      <div class="mt-2 h-1 w-20 bg-white mx-auto"></div>
+      <p class="mt-4 text-lg text-center max-w-3xl mx-auto">
+        Consulta los resultados de todas las jornadas del Zonal Regional BABY FÚTBOL FUNES 2025.
+      </p>
+    </div>
+  </div>
+  
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Fase de Grupos</h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {matchDays.slice(0, 3).map(day => (
+            <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+              <div class={`py-3 px-4 text-white ${day.status === "completed" ? "bg-secondary-600" : "bg-gray-600"}`}>
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold">{day.name}</h3>
+                  <span class="text-sm font-medium capitalize">{formatDate(day.date)}</span>
+                </div>
+              </div>
+              
+              {day.status === "completed" ? (
+                <div class="divide-y divide-gray-100">
+                  {day.matches.map(match => (
+                    <div class="p-4">
+                      <div class="text-xs text-gray-500 mb-1">Grupo {match.group}</div>
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center w-2/5">
+                          <span class="text-gray-800 font-semibold text-right w-full">{match.teamA}</span>
+                        </div>
+                        <div class="flex items-center justify-center w-1/5">
+                          <div class="px-3 py-1 bg-gray-100 rounded-lg flex justify-center items-center min-w-16">
+                            <span class="font-bold text-lg text-gray-800">{match.scoreA}</span>
+                            <span class="mx-1 text-gray-500">-</span>
+                            <span class="font-bold text-lg text-gray-800">{match.scoreB}</span>
+                          </div>
+                        </div>
+                        <div class="flex items-center w-2/5">
+                          <span class="text-gray-800 font-semibold text-left w-full">{match.teamB}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  
+                  <div class="p-4 bg-gray-50 text-center">
+                    <a href={day.pdfUrl} class="inline-flex items-center text-secondary-600 hover:text-secondary-800 font-medium">
+                      <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd"></path>
+                      </svg>
+                      Descargar boletín completo
+                    </a>
+                  </div>
+                </div>
+              ) : (
+                <div class="p-6 text-center text-gray-500">
+                  <svg class="w-12 h-12 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <p class="text-lg font-medium">Resultados pendientes</p>
+                  <p class="mt-2">Los resultados se publicarán después de los partidos.</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <div class="mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Fase Final</h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {matchDays.slice(3).map(day => (
+            <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+              <div class={`py-3 px-4 text-white ${day.status === "completed" ? "bg-accent-600" : "bg-gray-600"}`}>
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold">{day.name}</h3>
+                  <span class="text-sm font-medium capitalize">{formatDate(day.date)}</span>
+                </div>
+              </div>
+              
+              <div class="p-6 text-center text-gray-500">
+                <svg class="w-12 h-12 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p class="text-lg font-medium">Próximamente</p>
+                <p class="mt-2">Los resultados se actualizarán durante el desarrollo del torneo.</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Tabla de Posiciones</h2>
+        <p class="text-gray-700 mb-6">
+          La tabla de posiciones se actualizará después de cada jornada de partidos.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {['A', 'B', 'C', 'D'].map(groupName => (
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Grupo {groupName}</h3>
+              <div class="bg-white overflow-hidden rounded-lg shadow">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead>
+                    <tr class="bg-gray-50">
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Equipo</th>
+                      <th scope="col" class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">PJ</th>
+                      <th scope="col" class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">G</th>
+                      <th scope="col" class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">E</th>
+                      <th scope="col" class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">P</th>
+                      <th scope="col" class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">GF</th>
+                      <th scope="col" class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">GC</th>
+                      <th scope="col" class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">PTS</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-50">
+                      <td class="px-6 py-3 whitespace-nowrap text-sm font-medium text-gray-900">En desarrollo</td>
+                      <td class="px-3 py-3 whitespace-nowrap text-center text-sm text-gray-500">-</td>
+                      <td class="px-3 py-3 whitespace-nowrap text-center text-sm text-gray-500">-</td>
+                      <td class="px-3 py-3 whitespace-nowrap text-center text-sm text-gray-500">-</td>
+                      <td class="px-3 py-3 whitespace-nowrap text-center text-sm text-gray-500">-</td>
+                      <td class="px-3 py-3 whitespace-nowrap text-center text-sm text-gray-500">-</td>
+                      <td class="px-3 py-3 whitespace-nowrap text-center text-sm text-gray-500">-</td>
+                      <td class="px-3 py-3 whitespace-nowrap text-center text-sm text-gray-500">-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

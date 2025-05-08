@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroBanner from "../components/HeroBanner.astro";
+import InfoSection from "../components/InfoSection.astro";
+import FeatureGrid from "../components/FeatureGrid.astro";
+import TeamGroups from "../components/TeamGroups.astro";
+import ResultsPreview from "../components/ResultsPreview.astro";
+import GalleryPreview from "../components/GalleryPreview.astro";
+import Sponsors from "../components/Sponsors.astro";
+
+const title = "Baby Fútbol Funes 2025 - Zonal Regional";
+const description = "Torneo clasificatorio al zonal nacional Baby Fútbol Funes 2025. Participa del 8 al 13 de abril de 2025.";
+---
+
+<Layout title={title} description={description}>
+  <HeroBanner />
+  <InfoSection />
+  <FeatureGrid />
+  <TeamGroups />
+  <ResultsPreview />
+  <GalleryPreview />
+  <Sponsors />
+</Layout>
