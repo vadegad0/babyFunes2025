@@ -1,71 +1,287 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { format } from 'date-fns';
-import { es } from 'date-fns/locale';
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
 
 const title = "Resultados - Baby Fútbol Funes 2025";
-const description = "Resultados de los partidos del torneo Baby Fútbol Funes 2025, clasificatorio al zonal nacional.";
+const description =
+  "Resultados de los partidos del torneo Baby Fútbol Funes 2025, clasificatorio al zonal nacional.";
 
 // Sample data - replace with actual results when available
 const matchDays = [
   {
     id: "day1",
     name: "Jornada 1",
-    date: new Date('2025-04-08'),
+    date: new Date("2025-04-09"),
     status: "completed",
     pdfUrl: "#",
     matches: [
-      { group: "A", teamA: "CD Juventud", scoreA: 3, teamB: "Estrellas FC", scoreB: 1 },
-      { group: "A", teamA: "Real Ipiales", scoreA: 2, teamB: "D. Pasto Junior", scoreB: 2 },
-      { group: "B", teamA: "Los Andes", scoreA: 1, teamB: "Atlético Nariño", scoreB: 0 },
-      { group: "B", teamA: "Millos FC", scoreA: 4, teamB: "CD Tumaco", scoreB: 2 }
-    ]
+      {
+        group: "A",
+        teamA: "Alianza Sureña",
+        scoreA: 3,
+        teamB: "Deportivo Cali",
+        scoreB: 2,
+      },
+      {
+        group: "A",
+        teamA: "Selección Funes",
+        scoreA: 0,
+        teamB: "Samba Negra",
+        scoreB: 2,
+      },
+    ],
   },
   {
     id: "day2",
-    name: "Jornada 2",
-    date: new Date('2025-04-09'),
+    name: "Jornada 1",
+    date: new Date("2025-04-10"),
     status: "completed",
     pdfUrl: "#",
     matches: [
-      { group: "C", teamA: "Independiente Sur", scoreA: 2, teamB: "Atlético Junior", scoreB: 0 },
-      { group: "C", teamA: "Leones FC", scoreA: 1, teamB: "Talento Andino", scoreB: 1 },
-      { group: "D", teamA: "Nuevo Horizonte", scoreA: 3, teamB: "Samaniego United", scoreB: 2 },
-      { group: "D", teamA: "CD Sandoná", scoreA: 0, teamB: "Nueva Generación", scoreB: 2 }
-    ]
+      {
+        group: "C",
+        teamA: "Club RADI Ipiales",
+        scoreA: 0,
+        teamB: "Real Madrid Tumaco",
+        scoreB: 2,
+      },
+      {
+        group: "C",
+        teamA: "Alcaldía Sandona",
+        scoreA: 0,
+        teamB: "Eder Ruales Ipiales",
+        scoreB: 4,
+      },
+      {
+        group: "D",
+        teamA: "Deportivo Cali Nariño",
+        scoreA: 3,
+        teamB: "Escuela Municipal Guaitarilla",
+        scoreB: 2,
+      },
+      {
+        group: "D",
+        teamA: "Deportivo Pasto",
+        scoreA: 2,
+        teamB: "Alianza Sureña",
+        scoreB: 2,
+      },
+      {
+        group: "D",
+        teamA: "Canalete Magui Payan",
+        scoreA: 1,
+        teamB: "Sporting Nariño",
+        scoreB: 0,
+      },
+      {
+        group: "D",
+        teamA: "Jaguares F.C.",
+        scoreA: 1,
+        teamB: "Sueño Futbol Gran Cumbal",
+        scoreB: 3,
+      },
+      {
+        group: "D",
+        teamA: "Atlético Sucre",
+        scoreA: 3,
+        teamB: "Estudiantes F.C.",
+        scoreB: 2,
+      },
+    ],
   },
   {
     id: "day3",
+    name: "Jornada 2",
+    date: new Date("2025-04-11"),
+    status: "completed",
+    pdfUrl: "#",
+    matches: [
+      {
+        teamA: "Escuela Municipal Guaitarilla",
+        scoreA: 1,
+        teamB: "Deportivo Pasto",
+        scoreB: 11,
+      },
+      {
+        teamA: "Sueño Fútbol Gran Cumbal",
+        scoreA: 2,
+        teamB: "Canalete Magui Payan",
+        scoreB: 2,
+      },
+      {
+        teamA: "Sporting Nariño",
+        scoreA: 1,
+        teamB: "Jaguares F. C. de Pasto",
+        scoreB: 1,
+      },
+      {
+        teamA: "Eder Ruales Ipiales",
+        scoreA: 5,
+        teamB: "Club RADI Ipiales",
+        scoreB: 0,
+      },
+      {
+        teamA: "Real Madrid Tumaco",
+        scoreA: 5,
+        teamB: "Alcaldía Sandona",
+        scoreB: 0,
+      },
+      {
+        teamA: "Samba Negra Barbacoas",
+        scoreA: 0,
+        teamB: "Atlético Sucre Ipiales",
+        scoreB: 2,
+      },
+      {
+        teamA: "Estudiantes F.C.",
+        scoreA: 8,
+        teamB: "Selección Funes",
+        scoreB: 0,
+      },
+    ],
+  },
+  {
+    id: "day4",
     name: "Jornada 3",
-    date: new Date('2025-04-10'),
-    status: "pending",
-    pdfUrl: null,
-    matches: []
+    date: new Date("2025-04-12"),
+    status: "completed",
+    pdfUrl: "#",
+    matches: [
+      {
+        teamA: "Eder Ruales Ipiales",
+        scoreA: 1,
+        teamB: "Real Madrid Tumaco",
+        scoreB: 0,
+      },
+      {
+        teamA: "Alcaldía Sandona",
+        scoreA: 1,
+        teamB: "Club RADI Ipiales",
+        scoreB: 1,
+      },
+      {
+        teamA: "Alianza Sureña",
+        scoreA: 5,
+        teamB: "Escuela Municipal Guaitarilla",
+        scoreB: 0,
+      },
+      {
+        teamA: "Jaguares F. C. de Pasto",
+        scoreA: 1,
+        teamB: "Canalete Magui Payan",
+        scoreB: 3,
+      },
+      {
+        teamA: "Deportivo Pasto",
+        scoreA: 3,
+        teamB: "Deportivo Cali Nariño",
+        scoreB: 1,
+      },
+      {
+        teamA: "Estudiantes F.C.",
+        scoreA: 4,
+        teamB: "Samba Negra Barbacoas",
+        scoreB: 0,
+      },
+      {
+        teamA: "Sueño Fútbol Gran Cumbal",
+        scoreA: 0,
+        teamB: "Sporting Nariño",
+        scoreB: 2,
+      },
+      {
+        teamA: "Atlético Sucre Ipiales",
+        scoreA: 9,
+        teamB: "Selección Funes",
+        scoreB: 1,
+      },
+    ],
   },
   {
     id: "quarterfinals",
     name: "Cuartos de Final",
-    date: new Date('2025-04-11'),
-    status: "pending",
-    pdfUrl: null,
-    matches: []
+    date: new Date("2025-04-13"),
+    status: "completed",
+    pdfUrl: "#",
+    matches: [
+      {
+        teamA: "Eder Ruales Ipiales",
+        scoreA: 3,
+        teamB: "Sporting Nariño",
+        scoreB: 0,
+      },
+      {
+        teamA: "Atlético Sucre Ipiales",
+        scoreA: 0,
+        teamB: "Real Madrid Tumaco",
+        scoreB: 1,
+      },
+      {
+        teamA: "Alianza Sureña",
+        scoreA: 1,
+        teamB: "Estudiantes F.C.",
+        scoreB: 3,
+      },
+      {
+        teamA: "Canalete Magui Payan",
+        scoreA: 0,
+        teamB: "Deportivo Pasto",
+        scoreB: 4,
+      },
+    ],
   },
   {
     id: "semifinals",
     name: "Semifinales",
-    date: new Date('2025-04-12'),
-    status: "pending",
+    date: new Date("2025-04-13"),
+    status: "completed",
     pdfUrl: null,
-    matches: []
+    matches: [
+      {
+        teamA: "Eder Ruales Ipiales",
+        scoreA: 2,
+        teamB: "Real Madrid Tumaco",
+        scoreB: 0,
+      },
+      {
+        teamA: "Estudiantes F.C.",
+        scoreA: 4,
+        teamB: "Deportivo Pasto",
+        scoreB: 3,
+      },
+    ],
   },
   {
-    id: "final",
-    name: "Final",
-    date: new Date('2025-04-13'),
-    status: "pending",
+    id: "terceryCuarto",
+    name: "Tercer y Cuarto Puesto",
+    date: new Date("2025-04-14"),
+    status: "completed",
     pdfUrl: null,
-    matches: []
-  }
+    matches: [
+      {
+        teamA: "Deportivo Pasto",
+        scoreA: 3,
+        teamB: "Real Madrid Tumaco",
+        scoreB: 2,
+      },
+    ],
+  },
+  {
+    id: "PrimerySegundo",
+    name: "Primer y Segundo Puesto",
+    date: new Date("2025-04-14"),
+    status: "completed",
+    pdfUrl: null,
+    matches: [
+      {
+        teamA: "Eder Ruales Ipiales",
+        scoreA: 3,
+        teamB: "Estudiantes F.C.",
+        scoreB: 2,
+      },
+    ],
+  },
 ];
 
 function formatDate(date) {
@@ -79,139 +295,214 @@ function formatDate(date) {
       <h1 class="text-4xl font-bold text-center">Resultados del Torneo</h1>
       <div class="mt-2 h-1 w-20 bg-white mx-auto"></div>
       <p class="mt-4 text-lg text-center max-w-3xl mx-auto">
-        Consulta los resultados de todas las jornadas del Zonal Regional BABY FÚTBOL FUNES 2025.
+        Consulta los resultados de todas las jornadas del Zonal Regional BABY
+        FÚTBOL FUNES 2025.
       </p>
     </div>
   </div>
-  
+
+    <section class="bg-gradient-to-br from-white to-gray-100 py-12 px-4 md:px-12">
+  <div class="max-w-4xl mx-auto text-center">
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">🏆 Resultados Finales</h1>
+    <p class="text-lg text-gray-600 mb-10">Zonal Regional BABY FÚTBOL FUNES - Nariño</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white p-6 rounded-2xl shadow-lg border-t-4 border-yellow-500">
+        <h2 class="text-xl font-bold mb-2">🥇 Primer Puesto</h2>
+        <p class="text-2xl text-blue-600 font-semibold">Eder Ruales</p>
+        <p class="text-sm text-gray-500">Marcador: 3</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-lg border-t-4 border-gray-500">
+        <h2 class="text-xl font-bold mb-2">🥈 Segundo Puesto</h2>
+        <p class="text-2xl text-red-600 font-semibold">Estudiantes Pasto</p>
+        <p class="text-sm text-gray-500">Marcador: 2</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white p-6 rounded-2xl shadow-lg border-t-4 border-orange-400">
+        <h2 class="text-xl font-bold mb-2">🥉 Tercer Puesto</h2>
+        <p class="text-2xl text-purple-700 font-semibold">Deportivo Pasto</p>
+        <p class="text-sm text-gray-500">Marcador: (3) 0</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-lg border-t-4 border-yellow-200">
+        <h2 class="text-xl font-bold mb-2">🏅 Cuarto Puesto</h2>
+        <p class="text-2xl text-yellow-700 font-semibold">Real Madrid Tumaco</p>
+        <p class="text-sm text-gray-500">Marcador: (2) 0</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-green-100 border-l-4 border-green-500 p-5 rounded-xl shadow">
+        <h3 class="text-lg font-bold text-green-800 mb-1">🥅 Valla menos vencida</h3>
+        <p class="text-gray-700">Eder Ruales (2 goles en contra)</p>
+      </div>
+      <div class="bg-yellow-100 border-l-4 border-yellow-500 p-5 rounded-xl shadow">
+        <h3 class="text-lg font-bold text-yellow-800 mb-1">⚽ Goleador</h3>
+        <p class="text-gray-700">Milán Quiñonez Angulo - 7 goles (Eder Ruales)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-10">
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Fase de Grupos</h2>
-        
+
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {matchDays.slice(0, 3).map(day => (
-            <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
-              <div class={`py-3 px-4 text-white ${day.status === "completed" ? "bg-secondary-600" : "bg-gray-600"}`}>
-                <div class="flex justify-between items-center">
-                  <h3 class="text-xl font-bold">{day.name}</h3>
-                  <span class="text-sm font-medium capitalize">{formatDate(day.date)}</span>
-                </div>
-              </div>
-              
-              {day.status === "completed" ? (
-                <div class="divide-y divide-gray-100">
-                  {day.matches.map(match => (
-                    <div class="p-4">
-                      <div class="text-xs text-gray-500 mb-1">Grupo {match.group}</div>
-                      <div class="flex items-center justify-between">
-                        <div class="flex items-center w-2/5">
-                          <span class="text-gray-800 font-semibold text-right w-full">{match.teamA}</span>
-                        </div>
-                        <div class="flex items-center justify-center w-1/5">
-                          <div class="px-3 py-1 bg-gray-100 rounded-lg flex justify-center items-center min-w-16">
-                            <span class="font-bold text-lg text-gray-800">{match.scoreA}</span>
-                            <span class="mx-1 text-gray-500">-</span>
-                            <span class="font-bold text-lg text-gray-800">{match.scoreB}</span>
-                          </div>
-                        </div>
-                        <div class="flex items-center w-2/5">
-                          <span class="text-gray-800 font-semibold text-left w-full">{match.teamB}</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                  
-                  <div class="p-4 bg-gray-50 text-center">
-                    <a href={day.pdfUrl} class="inline-flex items-center text-secondary-600 hover:text-secondary-800 font-medium">
-                      <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd"></path>
-                      </svg>
-                      Descargar boletín completo
-                    </a>
+          {
+            matchDays.slice(0, 4).map((day) => (
+              <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                <div
+                  class={`py-3 px-4 text-white ${day.status === "completed" ? "bg-secondary-600" : "bg-gray-600"}`}
+                >
+                  <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold">{day.name}</h3>
+                    <span class="text-sm font-medium capitalize">
+                      {formatDate(day.date)}
+                    </span>
                   </div>
                 </div>
-              ) : (
-                <div class="p-6 text-center text-gray-500">
-                  <svg class="w-12 h-12 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  <p class="text-lg font-medium">Resultados pendientes</p>
-                  <p class="mt-2">Los resultados se publicarán después de los partidos.</p>
-                </div>
-              )}
-            </div>
-          ))}
+
+                {day.status === "completed" ? (
+                  <div class="divide-y divide-gray-100">
+                    {day.matches.map((match) => (
+                      <div class="p-4">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center w-2/5">
+                            <span class="text-gray-800 font-semibold text-right w-full">
+                              {match.teamA}
+                            </span>
+                          </div>
+                          <div class="flex items-center justify-center w-1/5">
+                            <div class="px-3 py-1 bg-gray-100 rounded-lg flex justify-center items-center min-w-16">
+                              <span class="font-bold text-lg text-gray-800">
+                                {match.scoreA}
+                              </span>
+                              <span class="mx-1 text-gray-500">-</span>
+                              <span class="font-bold text-lg text-gray-800">
+                                {match.scoreB}
+                              </span>
+                            </div>
+                          </div>
+                          <div class="flex items-center w-2/5">
+                            <span class="text-gray-800 font-semibold text-left w-full">
+                              {match.teamB}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div class="p-6 text-center text-gray-500">
+                    <svg
+                      class="w-12 h-12 mx-auto mb-4 text-gray-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <p class="text-lg font-medium">Resultados pendientes</p>
+                    <p class="mt-2">
+                      Los resultados se publicarán después de los partidos.
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))
+          }
         </div>
       </div>
-      
+
       <div class="mb-10">
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Fase Final</h2>
-        
+
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {matchDays.slice(3).map(day => (
-            <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
-              <div class={`py-3 px-4 text-white ${day.status === "completed" ? "bg-accent-600" : "bg-gray-600"}`}>
-                <div class="flex justify-between items-center">
-                  <h3 class="text-xl font-bold">{day.name}</h3>
-                  <span class="text-sm font-medium capitalize">{formatDate(day.date)}</span>
+          {
+            matchDays.slice(4).map((day) => (
+              <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                <div
+                  class={`py-3 px-4 text-white ${day.status === "completed" ? "bg-accent-600" : "bg-gray-600"}`}
+                >
+                  <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold">{day.name}</h3>
+                    <span class="text-sm font-medium capitalize">
+                      {formatDate(day.date)}
+                    </span>
+                  </div>
                 </div>
+
+                {day.status === "completed" && day.matches.length > 0 ? (
+                  <div class="divide-y divide-gray-100">
+                    {day.matches.map((match) => (
+                      <div class="p-4">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center w-2/5">
+                            <span class="text-gray-800 font-semibold text-right w-full">
+                              {match.teamA}
+                            </span>
+                          </div>
+                          <div class="flex items-center justify-center w-1/5">
+                            <div class="px-3 py-1 bg-gray-100 rounded-lg flex justify-center items-center min-w-16">
+                              <span class="font-bold text-lg text-gray-800">
+                                {match.scoreA}
+                              </span>
+                              <span class="mx-1 text-gray-500">-</span>
+                              <span class="font-bold text-lg text-gray-800">
+                                {match.scoreB}
+                              </span>
+                            </div>
+                          </div>
+                          <div class="flex items-center w-2/5">
+                            <span class="text-gray-800 font-semibold text-left w-full">
+                              {match.teamB}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div class="p-6 text-center text-gray-500">
+                    <svg
+                      class="w-12 h-12 mx-auto mb-4 text-gray-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <p class="text-lg font-medium">Próximamente</p>
+                    <p class="mt-2">
+                      Los resultados se actualizarán durante el desarrollo del
+                      torneo.
+                    </p>
+                  </div>
+                )}
               </div>
-              
-              <div class="p-6 text-center text-gray-500">
-                <svg class="w-12 h-12 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <p class="text-lg font-medium">Próximamente</p>
-                <p class="mt-2">Los resultados se actualizarán durante el desarrollo del torneo.</p>
-              </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
-      
-      <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Tabla de Posiciones</h2>
-        <p class="text-gray-700 mb-6">
-          La tabla de posiciones se actualizará después de cada jornada de partidos.
-        </p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {['A', 'B', 'C', 'D'].map(groupName => (
-            <div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Grupo {groupName}</h3>
-              <div class="bg-white overflow-hidden rounded-lg shadow">
-                <table class="min-w-full divide-y divide-gray-200">
-                  <thead>
-                    <tr class="bg-gray-50">
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Equipo</th>
-                      <th scope="col" class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">PJ</th>
-                      <th scope="col" class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">G</th>
-                      <th scope="col" class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">E</th>
-                      <th scope="col" class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">P</th>
-                      <th scope="col" class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">GF</th>
-                      <th scope="col" class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">GC</th>
-                      <th scope="col" class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">PTS</th>
-                    </tr>
-                  </thead>
-                  <tbody class="bg-white divide-y divide-gray-200">
-                    <tr class="hover:bg-gray-50">
-                      <td class="px-6 py-3 whitespace-nowrap text-sm font-medium text-gray-900">En desarrollo</td>
-                      <td class="px-3 py-3 whitespace-nowrap text-center text-sm text-gray-500">-</td>
-                      <td class="px-3 py-3 whitespace-nowrap text-center text-sm text-gray-500">-</td>
-                      <td class="px-3 py-3 whitespace-nowrap text-center text-sm text-gray-500">-</td>
-                      <td class="px-3 py-3 whitespace-nowrap text-center text-sm text-gray-500">-</td>
-                      <td class="px-3 py-3 whitespace-nowrap text-center text-sm text-gray-500">-</td>
-                      <td class="px-3 py-3 whitespace-nowrap text-center text-sm text-gray-500">-</td>
-                      <td class="px-3 py-3 whitespace-nowrap text-center text-sm text-gray-500">-</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+
+
     </div>
   </section>
+
+
 </Layout>

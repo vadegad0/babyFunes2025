@@ -7,7 +7,7 @@ import sharp from 'sharp';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const galeriaDir = path.join(__dirname, 'public', 'galeria');
+const galeriaDir = path.join(__dirname, 'public', 'Teams');
 const files = fs.readdirSync(galeriaDir).filter(f => /\.(jpe?g|png|webp)$/i.test(f));
 
 const getDimensions = async (filePath) => {
@@ -28,8 +28,8 @@ const main = async () => {
     if (dimensions) {
       photos.push({
         id: `day1-photo-${i + 1}`,
-        src: `/galeria/${filename}`,
-        thumbnail: `/galeria/${filename}`,
+        src: `/Teams/${filename}`,
+        thumbnail: `/Teams/${filename}`,
         alt: `Fotografía del día 1 - ${i + 1}`,
         width: dimensions.width,
         height: dimensions.height,

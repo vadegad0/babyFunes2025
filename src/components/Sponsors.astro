@@ -1,17 +1,18 @@
 ---
 const sponsors = [
-  { name: "Alcaldía de Funes", logo: "https://via.placeholder.com/200x100?text=Alcaldía+de+Funes" },
-  { name: "Los Paisitas", logo: "https://via.placeholder.com/200x100?text=Los+Paisitas" },
-  { name: "Fundación Fénix", logo: "https://via.placeholder.com/200x100?text=Fundación+Fénix" },
-  { name: "Alianza Sureña", logo: "https://via.placeholder.com/200x100?text=Alianza+Sureña" },
-  { name: "OSBOL", logo: "https://via.placeholder.com/200x100?text=OSBOL" },
+  { name: "Alcaldía de Funes", logo: "/Escudos/1.webp" },
+  { name: "Los Paisitas", logo: "/Recursos/paisitas.webp" },
+  { name: "Fundación Fénix", logo: "/Recursos/Fenix.webp" },
+  { name: "Fundación Alianza Sureña", logo: "/Recursos/AlianzaSureña.webp" },
+  { name: "OSBOL", logo: "/Recursos/Osbol.webp" },
+  { name: "Fortaleza", logo: "/Recursos/Fortaleza.webp" },
 ];
 ---
 
 <section class="py-16 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-gray-900">Patrocinadores y Aliados</h2>
+      <h2 class="text-3xl font-bold text-gray-900">Aliados</h2>
       <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
         Agradecemos a todas las instituciones que hacen posible este torneo.
       </p>
@@ -23,12 +24,6 @@ const sponsors = [
           <img src={sponsor.logo} alt={`Logo de ${sponsor.name}`} class="max-h-20" />
         </div>
       ))}
-    </div>
-    
-    <div class="mt-12 text-center">
-      <p class="text-gray-600">
-        ¿Interesado en ser patrocinador? <a href="/contacto" class="text-primary-600 hover:text-primary-800 font-semibold">Contáctanos</a>
-      </p>
     </div>
   </div>
 </section>
